@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Keep app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+       <div class="nav">
+            <h1>MemoryKeep App 🦧🧑</h1>
+        </div>
+        <div class="content">     <div class="left">
+       <form action="" method="post">
+
+                <input type="text" name="name" placeholder="Creater Name" required="">
+                <input type="text" name="tags" placeholder="add tags" required="">
+                <input type="text" name="title" placeholder="Title" required="">
+                <input type="text" name="disc" placeholder="Description" required="" min="50">
+               
+                  <input type="file" class="file_field" name="image" required="">
+             
+                <input type="submit">
+             </form> </div>
+         
+           <div class="right">
+           
+            <% data.forEach((item)=>{ %>
+               <div class="card">
+                  <div class="cardHeader">
+                   <img src="./img/content/<%= item.image %> " alt="img Loading"> 
+                   <h2 class="name"><u>posted by &nbsp;</u><%= item.name  %></h2>
+                   <span class="time"><%= item.time %> ago</span>
+                  </div>
+                  <span class="tag">
+                    <% item.tags.forEach((i)=>{ %>
+                      #<%= i  %>
+                      <% }) %>
+ 
+                    </span>
+                    <h1 class="title"><%= item.title  %></h1>
+                     <span class="disc"><%= item.disc  %></span>
+                     <div class="footercontent">
+                      <span>❤ 55 </span>
+                      <a href="/delete/<%= item.id %>"><span>❌</span></a>
+                      
+                  </div>
+               </div>  
+            
+             
+             <% }) %>
+
+           </div>
+        </div>
+    </div>
+</body>
+</html>
